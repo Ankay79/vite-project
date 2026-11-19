@@ -60,6 +60,32 @@ body {
     min-height: 100vh;
 }
 
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 16px 24px;
+    display: flex;
+    gap: 16px;
+    border-bottom: 1px solid var(--overlay-border);
+}
+
+header ul li a {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+    background: linear-gradient(90deg, var(--accent-highlight), var(--accent-primary), var(--accent-secondary));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+header ul li a:hover {
+    background: var(--overlay-hover);
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(16px); }
@@ -84,7 +110,7 @@ body {
 #root {
     max-width: 600px;
     margin: 40px auto;
-    padding: 32px;
+    padding: 0;
     background: var(--overlay-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -95,7 +121,20 @@ body {
     text-align: left;
     width: auto;
     border-inline: none;
-    box-shadow: 0 8px 32px var(--shadow-screen);
+    overflow: hidden;
+    min-height: 500px;
+}
+
+#root .page-content {
+    padding: 24px 32px;
+}
+
+#root .page-content h1 {
+    margin-top: 0;
+}
+
+#root .chat-container {
+    height: 100%;
 }
 
 h1,
@@ -127,10 +166,35 @@ code {
     color: var(--text-primary);
 }
 
+.openchat {
+    margin-top: 16px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border: none;
+    border-radius: 12px;
+    color: var(--text-white);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.openchat:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.openchat:active {
+    transform: scale(0.95);
+}
+
 @media (max-width: 640px) {
     #root {
-        margin: 12px;
-        padding: 20px;
-        border-radius: 16px;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    #root .page-content {
+        padding: 16px 20px;
     }
 }
+
