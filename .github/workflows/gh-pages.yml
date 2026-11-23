@@ -2,7 +2,7 @@ name: GitHub Pages
 run-name: ${{ github.actor }} is rolling out a new version of the app 🚀
 on: [push]
 jobs:
-  Build-and-Deploy:
+  Build-and-Deploy: 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -10,10 +10,10 @@ jobs:
       with:
         node-version: 24
     - name: Install npm deps
-      working-directory: 
+      working-directory: ./
       run: npm i
     - name: Build app
-      working-directory: 
+      working-directory: ./
       run: npm run build
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
