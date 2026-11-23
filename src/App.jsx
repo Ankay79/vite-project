@@ -18,7 +18,7 @@ function AppReactRouter() {
             <li><Link to="/chats">Чаты</Link></li>
             <li><Link to="/music">Музыка</Link></li>
             <li><Link to="/yourschat">Ваш чат</Link></li>
-             <li><Link to="/mydocs"></Link></li>
+             <li><Link to="/mydocs">Документы</Link></li>
           </ul>
         </header>
         <main>
