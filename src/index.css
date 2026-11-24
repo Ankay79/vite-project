@@ -65,7 +65,8 @@ header ul {
     margin: 0;
     padding: 16px 24px;
     display: flex;
-    gap: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
     border-bottom: 1px solid var(--overlay-border);
 }
 
@@ -83,8 +84,7 @@ header ul li a {
 
 header ul li a:hover {
     background: var(--overlay-hover);
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: unset;
+    -webkit-text-fill-color: initial;
 }
 
 @keyframes fadeIn {
@@ -108,7 +108,7 @@ header ul li a:hover {
 }
 
 #root {
-    max-width: 600px;
+    max-width: 800px;
     margin: 40px auto;
     padding: 0;
     background: var(--overlay-bg);
@@ -119,8 +119,6 @@ header ul li a:hover {
     box-shadow: 0 8px 32px var(--shadow-screen);
     animation: fadeIn 0.5s ease-out;
     text-align: left;
-    width: auto;
-    border-inline: none;
     overflow: hidden;
     min-height: 500px;
 }
@@ -153,6 +151,13 @@ h1 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: shimmer 3s linear infinite;
+}
+
+h2 {
+    font-size: 18px;
+    margin: 0 0 16px;
+    color: var(--text-secondary);
+    font-weight: 400;
 }
 
 p {
@@ -197,4 +202,3 @@ code {
         padding: 16px 20px;
     }
 }
-

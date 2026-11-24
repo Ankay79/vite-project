@@ -1,36 +1,52 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react'
 
-const MAX_LENGTH = 1000;
+const MAX_LENGTH = 1000
+const USER_PROFILE_KEY = 'simple-chat-user-profile'
 
 function ChatInput({ onSend }) {
-  const [text, setText] = useState('');
-  const [author, setAuthor] = useState('');
+  const [text, setText] = useState('')
+  const [author, setAuthor] = useState('')
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(USER_PROFILE_KEY)
+      if (stored) {
+        const profile = JSON.parse(stored)
+        const fullName = [profile.firstName, profile.lastName].filter(Boolean).join(' ')
+        if (fullName) {
+          setAuthor(fullName)
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }, [])
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!text.trim() || !author.trim()) return;
-    onSend(text.trim(), author.trim());
-    setText('');
-  };
+    e.preventDefault()
+    if (!text.trim() || !author.trim()) return
+    onSend(text.trim(), author.trim())
+    setText('')
+  }
 
   const handleAuthorChange = (e) => {
-    setAuthor(e.target.value);
-  };
+    setAuthor(e.target.value)
+  }
 
   const handleTextChange = (e) => {
     if (e.target.value.length <= MAX_LENGTH) {
-      setText(e.target.value);
+      setText(e.target.value)
     }
-  };
+  }
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSubmit(e);
+      e.preventDefault()
+      handleSubmit(e)
     }
-  };
+  }
 
-  const isOverLimit = text.length >= MAX_LENGTH;
+  const isOverLimit = text.length >= MAX_LENGTH
 
   return (
     <form className="chat-input" onSubmit={handleSubmit}>

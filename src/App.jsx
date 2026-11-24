@@ -5,7 +5,10 @@ import Chats from './Pages/Chats/Chats'
 import Contacts from './Pages/Contacts/Contacts'
 import Music from './Pages/Music/Music'
 import YoursChat from './Pages/Chats/YoursChat'
-import MyDocs from "./Pages/MyDocs/MyDocs";
+import MyDocs from './Pages/MyDocs/MyDocs'
+import Profile from './Pages/Profile/Profile'
+import Maps from './Pages/Maps/Maps'
+import GeneralChat from './Pages/GeneralChat/GeneralChat'
 
 function AppReactRouter() {
   return (
@@ -13,12 +16,15 @@ function AppReactRouter() {
       <Router>
         <header>
           <ul>
-            <li><Link to="/main">Главная</Link></li>
+            <li><Link to="/main">Главная</Link></li>  
+              <li><Link to="/profile">Профиль</Link></li>
             <li><Link to="/contacts">Контакты</Link></li>
             <li><Link to="/chats">Чаты</Link></li>
+             <li><Link to="/yourschat">Ваш чат</Link></li>  
+             <li><Link to="/generalchat">Общий чат</Link></li>
             <li><Link to="/music">Музыка</Link></li>
-            <li><Link to="/yourschat">Ваш чат</Link></li>
-             <li><Link to="/mydocs">Документы</Link></li>
+            <li><Link to="/mydocs">Документы</Link></li>
+            <li><Link to="/maps">Карты</Link></li>
           </ul>
         </header>
         <main>
@@ -29,6 +35,9 @@ function AppReactRouter() {
             <Route path="/music" element={<Music />} />
             <Route path="/yourschat" element={<YoursChat />} />
             <Route path="/mydocs" element={<MyDocs />}/>
+            <Route path="/profile" element={<Profile />}/>
+            <Route path="/maps" element={<Maps/>}/>
+            <Route path="/generalchat" element={<GeneralChat />}/>
           </Routes>
         </main>
       </Router>

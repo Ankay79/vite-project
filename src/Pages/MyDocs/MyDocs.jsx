@@ -1,12 +1,9 @@
-import '../../App.css'
-
 const MyDocs = () => {
     return (
-        <div className="docs-container ">
-            <h1>Мои документы</h1>
-            <section>сохраненные документы</section>
+        <div className="page-content">
+            <h1>Документы</h1>
         </div>
     )
 }
 
-export default MyDocs;
+export default MyDocs
