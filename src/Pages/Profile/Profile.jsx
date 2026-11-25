@@ -1,42 +1,36 @@
 import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { updateProfile, clearProfile } from '../../store/slices/profileSlice'
 import '../../App.css'
 
-const USER_PROFILE_KEY = 'simple-chat-user-profile'
-
 const Profile = () => {
+    const profile = useSelector((state) => state.profile)
+    const dispatch = useDispatch()
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [saved, setSaved] = useState(false)
 
     useEffect(() => {
-        try {
-            const stored = localStorage.getItem(USER_PROFILE_KEY)
-            if (stored) {
-                const profile = JSON.parse(stored)
-                setFirstName(profile.firstName || '')
-                setLastName(profile.lastName || '')
-            }
-        } catch {
-            // ignore
+        if (profile) {
+            setFirstName(profile.firstName || '')
+            setLastName(profile.lastName || '')
         }
-    }, [])
+    }, [profile])
 
     const handleSave = (e) => {
         e.preventDefault()
         if (!firstName.trim() || !lastName.trim()) return
 
-        const profile = {
+        dispatch(updateProfile({
             firstName: firstName.trim(),
             lastName: lastName.trim(),
-            updatedAt: Date.now(),
-        }
-        localStorage.setItem(USER_PROFILE_KEY, JSON.stringify(profile))
+        }))
         setSaved(true)
         setTimeout(() => setSaved(false), 2000)
     }
 
     const handleClear = () => {
-        localStorage.removeItem(USER_PROFILE_KEY)
+        dispatch(clearProfile())
         setFirstName('')
         setLastName('')
         setSaved(false)
