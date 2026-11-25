@@ -14,7 +14,7 @@ const Chats = () => {
             </Link>
             <section></section>
             <Link to="/newchat">
-                <button classname="createnewchat">Начать новый чат</button>
+                <button className="createnewchat">Начать новый чат</button>
             </Link>
         </div>
     )

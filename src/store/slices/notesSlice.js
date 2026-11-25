@@ -43,10 +43,7 @@ const syncNotes = (currentNotes) => {
     }
 }
 
-import store from '../index'
-store.subscribe(() => {
-    syncNotes(store.getState().notes)
-})
-
 export const { addNote, updateNote, removeNote, clearNotes } = notesSlice.actions
 export default notesSlice.reducer
+
+export { syncNotes }

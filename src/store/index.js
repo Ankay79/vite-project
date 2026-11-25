@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import messagesReducer from './slices/messagesSlice'
-import profileReducer from './slices/profileSlice'
-import notesReducer from './slices/notesSlice'
-import musicReducer from './slices/musicSlice'
+import messagesReducer, { syncMessages } from './slices/messagesSlice'
+import profileReducer, { syncWithStorage } from './slices/profileSlice'
+import notesReducer, { syncNotes } from './slices/notesSlice'
+import musicReducer, { syncFavorites } from './slices/musicSlice'
 
 const store = configureStore({
     reducer: {
@@ -11,6 +11,14 @@ const store = configureStore({
         notes: notesReducer,
         music: musicReducer,
     },
+})
+
+// Синхронизация с localStorage
+store.subscribe(() => {
+    syncMessages(store.getState().messages)
+    syncWithStorage(store.getState().profile)
+    syncNotes(store.getState().notes)
+    syncFavorites(store.getState().music.favorites)
 })
 
 export default store

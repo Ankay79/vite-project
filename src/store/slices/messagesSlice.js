@@ -37,10 +37,8 @@ const syncMessages = (currentMessages) => {
     }
 }
 
-import store from '../index'
-store.subscribe(() => {
-    syncMessages(store.getState().messages)
-})
-
 export const { addMessage, clearMessages, removeMessage } = messagesSlice.actions
 export default messagesSlice.reducer
+
+// Экспорт функции синхронизации для использования в index.js
+export { syncMessages }

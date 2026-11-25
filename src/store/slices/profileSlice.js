@@ -52,11 +52,7 @@ const syncWithStorage = (currentState) => {
     }
 }
 
-// Подписываемся на изменения store
-import store from '../index'
-store.subscribe(() => {
-    syncWithStorage(store.getState().profile)
-})
-
 export const { setProfile, updateProfile, clearProfile } = profileSlice.actions
 export default profileSlice.reducer
+
+export { syncWithStorage }

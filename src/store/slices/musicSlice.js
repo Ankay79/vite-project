@@ -47,10 +47,7 @@ const syncFavorites = (favorites) => {
     }
 }
 
-import store from '../index'
-store.subscribe(() => {
-    syncFavorites(store.getState().music.favorites)
-})
-
 export const { toggleFavorite, setCurrentTrack, setPlaying } = musicSlice.actions
 export default musicSlice.reducer
+
+export { syncFavorites }
