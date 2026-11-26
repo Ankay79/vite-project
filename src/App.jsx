@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
+import Header from './components/Header'
 import Main from './Pages/Main/Main'
 import Chats from './Pages/Chats/Chats'
 import Contacts from './Pages/Contacts/Contacts'
@@ -43,25 +44,7 @@ function AppReactRouter() {
     return (
         <>
             <Router>
-                <header>
-                    <div className="header-user">
-                        <span className="header-greeting">
-                            Привет, {profile.firstName}! 👋
-                        </span>
-                    </div>
-                    <ul>
-                        <li><Link to="/main">Главная</Link></li>
-                        <li><Link to="/profile">Профиль</Link></li>
-                        <li><Link to="/contacts">Контакты</Link></li>
-                        <li><Link to="/chats">Чаты</Link></li>
-                        <li><Link to="/yourschat">Ваш чат</Link></li>
-                        <li><Link to="/generalchat">Общий чат</Link></li>
-                        <li><Link to="/music">Музыка</Link></li>
-                        <li><Link to="/notes">Заметки</Link></li>
-                        <li><Link to="/mydocs">Документы</Link></li>
-                        <li><Link to="/maps">Карты</Link></li>
-                    </ul>
-                </header>
+                <Header profile={profile} />
                 <main>
                     <Routes>
                         <Route path="/main" element={<Main />} />
