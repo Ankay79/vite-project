@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { updateProfile, clearProfile } from '../../store/slices/profileSlice'
+import { updateProfile, clearProfile } from '../../store/slices/profileSlice.js'
 import '../../App.css'
 
 const Profile = () => {

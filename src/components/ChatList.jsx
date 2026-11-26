@@ -1,4 +1,4 @@
-import ChatMessage from './ChatMessage';
+import ChatMessage from './ChatMessage.jsx';
 
 function ChatList({ messages }) {
   if (messages.length === 0) {

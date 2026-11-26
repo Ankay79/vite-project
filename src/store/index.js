@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import messagesReducer, { syncMessages } from './slices/messagesSlice'
-import profileReducer, { syncWithStorage } from './slices/profileSlice'
-import notesReducer, { syncNotes } from './slices/notesSlice'
-import musicReducer, { syncFavorites } from './slices/musicSlice'
+import messagesReducer, { syncMessages } from './slices/messagesSlice.js'
+import profileReducer, { syncWithStorage } from './slices/profileSlice.js'
+import notesReducer, { syncNotes } from './slices/notesSlice.js'
+import musicReducer, { syncFavorites } from './slices/musicSlice.js'
 
 const store = configureStore({
     reducer: {

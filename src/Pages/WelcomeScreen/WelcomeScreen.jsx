@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
-import { setProfile } from '../../store/slices/profileSlice'
+import { setProfile } from '../../store/slices/profileSlice.js'
 import '../../App.css'
 
 const WelcomeScreen = ({ onComplete }) => {

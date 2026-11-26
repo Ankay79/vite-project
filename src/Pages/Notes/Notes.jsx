@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addNote, updateNote, removeNote } from '../../store/slices/notesSlice'
+import { addNote, updateNote, removeNote } from '../../store/slices/notesSlice.js'
 import '../../App.css'
 
 const Notes = () => {
