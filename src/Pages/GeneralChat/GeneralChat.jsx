@@ -2,8 +2,8 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addMessage, clearMessages } from '../../store/slices/messagesSlice.js'
 import { fetchMessages, sendMessage, clearMessages as clearMessagesApi } from '../../services/chatService.js'
-import ChatList from '../../components/ChatList'
-import ChatInput from '../../components/ChatInput'
+import ChatList from '../../components/ChatList.jsx'
+import ChatInput from '../../components/ChatInput.jsx'
 import '../../App.css'
 
 const POLL_INTERVAL = 2000

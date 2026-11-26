@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import ChatList from '../../components/ChatList'
-import ChatInput from '../../components/ChatInput'
+import ChatList from '../../components/ChatList.jsx'
+import ChatInput from '../../components/ChatInput.jsx'
 import '../../App.css'
 
 const STORAGE_KEY = 'simple-chat-messages'

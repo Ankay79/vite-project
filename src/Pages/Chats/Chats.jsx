@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import AppHeader from '../../components/AppHeader'
-import ChatItem from '../../components/ChatItem'
-import FloatingButton from '../../components/FloatingButton'
+import AppHeader from '../../components/AppHeader.jsx'
+import ChatItem from '../../components/ChatItem.jsx'
+import FloatingButton from '../../components/FloatingButton.jsx'
 import '../../App.css'
 
 const sampleChats = [
