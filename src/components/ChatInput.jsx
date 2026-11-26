@@ -27,8 +27,8 @@ function ChatInput({ onSend }) {
         const fullName = [profile.firstName, profile.lastName].filter(Boolean).join(' ')
         if (fullName) setAuthor(fullName)
       }
-    } catch {
-      // ignore
+    } catch (err) {
+      console.error('Failed to load user profile:', err)
     }
   }, [])
 
